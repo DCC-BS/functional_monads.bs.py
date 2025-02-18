@@ -71,3 +71,14 @@ Run the tests with:
 ```sh
 uv run hatch test
 ```
+
+Update version:
+
+```sh
+uv run hatch version patch
+# or
+uv run hatch version minor
+# or
+uv run hatch version major
+```
+see also [https://hatch.pypa.io/latest/version/](https://hatch.pypa.io/latest/version/)
