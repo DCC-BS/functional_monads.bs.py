@@ -3,7 +3,7 @@ requires = ["hatchling", "version-pioneer"]
 build-backend = "hatchling.build"
 
 [project]
-name = "functional-monads_bs_py"
+name = "functional-monads.bs.py"
 requires-python = ">=3.13"
 dynamic = ["version"]
 description = "My private package from private github repo"
