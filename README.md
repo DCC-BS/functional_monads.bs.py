@@ -7,7 +7,7 @@
 To install the package, use pip:
 
 ```sh
-pip install functional_monads_bs_py
+uv add git+https://github.com/DCC-BS/functional-monads.bs.py
 ```
 
 ## Usage
@@ -61,7 +61,7 @@ print(default_value)  # Output: 0
 To contribute to the development of this package, clone the repository and install the development dependencies:
 
 ```sh
-git clone https://github.com/DCC-BS/functional_monads.bs.py
+git clone https://github.com/DCC-BS/functional-monads.bs.py
 cd functional-monads
 uv sync
 ```

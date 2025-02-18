@@ -3,7 +3,7 @@ requires = ["hatchling", "version-pioneer"]
 build-backend = "hatchling.build"
 
 [project]
-name = "functional_monads_bs_py"
+name = "functional-monads_bs_py"
 requires-python = ">=3.13"
 dynamic = ["version"]
 description = "My private package from private github repo"
@@ -36,8 +36,8 @@ dev = [
 testpaths = ["tests"]
 
 [project.urls]
-Documentation = "https://github.com/DCC-BS/functional_monads.bs.py#readme"
-Source = "https://github.com/DCC-BS/functional_monads.bs.py"
+Documentation = "https://github.com/DCC-BS/functional-monads.bs.py#readme"
+Source = "https://github.com/DCC-BS/functional-monads.bs.py"
 
 
 [tool.hatch.version]
@@ -58,18 +58,6 @@ check = "mypy --install-types --non-interactive {args:src/hatch_demo tests}"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/functional_monads"]
-
-[tool.coverage.run]
-source_pkgs = ["functional_monads", "tests"]
-branch = true
-parallel = true
-omit = [
-  "src/functional_monads/__about__.py",
-]
-
-[tool.coverage.paths]
-functional_monads = ["src/functional_monads", "*/hatch-demo/src/functional_monads"]
-tests = ["tests", "*/hatch-demo/tests"]
 
 [tool.hatch.build.targets.sdist]
 include = [
