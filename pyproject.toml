@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling", "hatch-vcs"]
+requires = ["hatchling", "version-pioneer"]
 build-backend = "hatchling.build"
 
 [project]
@@ -39,9 +39,14 @@ testpaths = ["tests"]
 Documentation = "https://github.com/DCC-BS/functional_monads.bs.py#readme"
 Source = "https://github.com/DCC-BS/functional_monads.bs.py"
 
+
 [tool.hatch.version]
-path = "src/functional_monads/__about__.py"
-source = "vcs"
+source = "version-pioneer"
+
+[tool.version-pioneer]
+versionscript = "src/functional_monads/_version.py"  # Where to "read" the Version-Pioneer script (to execute `get_version_dict()`).
+versionfile-sdist = "src/functional_monads/_version.py"  # Where to "write" the version dict for sdist.
+versionfile-wheel = "functional_monads/_version.py"  # Where to "write" the version dict for wheel.
 
 [tool.hatch.envs.types]
 extra-dependencies = [
