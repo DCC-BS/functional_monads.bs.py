@@ -27,12 +27,16 @@ def test_is_right():
 
 def test_map_right():
     r = right(42).map_right(lambda x: x + 1)
+    l = left("error").map_right(lambda x: x + 1)
     assert r.value == 43
+    assert l.value == "error"
 
 
 def test_map_left():
     l = left("error").map_left(lambda x: x.upper())
+    r = right(42).map_left(lambda x: x.upper())
     assert l.value == "ERROR"
+    assert r.value == 42
 
 
 def test_bind_right():
@@ -64,3 +68,23 @@ def test_fold():
     assert r == "Success: 42"
     l = left("error").fold(lambda x: f"Error: {x}", lambda x: f"Success: {x}")
     assert l == "Error: error"
+
+
+def test_left_str():
+    l = left("error")
+    assert str(l) == "Left(error)"
+
+
+def test_right_str():
+    r = right(42)
+    assert str(r) == "Right(42)"
+
+
+def test_left_repr():
+    l = left("error")
+    assert repr(l) == "Left(error)"
+
+
+def test_right_repr():
+    r = right(42)
+    assert repr(r) == "Right(42)"
