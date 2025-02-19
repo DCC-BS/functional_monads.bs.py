@@ -1,6 +1,5 @@
 # Example _version.py, completely non-vendored.
 from pathlib import Path
-
 from version_pioneer.api import get_version_dict_wo_exec
 
 

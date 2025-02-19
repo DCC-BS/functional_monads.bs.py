@@ -24,12 +24,16 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+    "version-pioneer>=0.0.13",
+]
 
 [dependency-groups]
 dev = [
+    "coverage>=7.6.12",
     "hatchling>=1.27.0",
     "pytest>=8.3.4",
+    "pytest-cov>=6.0.0",
 ]
 
 [tool.pytest.ini_options]

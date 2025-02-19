@@ -1,3 +1,6 @@
+![GitHub Tag](https://img.shields.io/github/v/tag/DCC-BS/functional-monads.bs.py?filter=v*&label=version)
+
+
 # Functional Monads
 
 `functional_monads` is a Python package that provides implementations of common functional programming monads, such as `Maybe` and `Either`.

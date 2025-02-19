@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          uv sync
+
+      - name: Run tests with coverage
+        run: |
+          uv run coverage run pytest
+          uv run coverage report -m
+          uv run coverage xml  # Generate XML report for badge generation
+
+      - name: Upload coverage results for badge generation
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: coverage.xml
+
+      - name: Generate Coverage Badge
+        run: |
+          total=$(coverage xml -i | grep "line-rate" | cut -d'"' -f2)
+          curl "https://img.shields.io/badge/coverage-${total}%25-brightgreen" > badge.svg
+          echo "![Coverage Badge](badge.svg)" >> README.md  # Append to README.md or manage it as needed.
