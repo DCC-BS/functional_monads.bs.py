@@ -1,4 +1,4 @@
-![GitHub Tag](https://img.shields.io/github/v/tag/DCC-BS/functional-monads.bs.py?sort=semver&label=v)
+![GitHub Tag](https://img.shields.io/github/v/tag/DCC-BS/functional-monads.bs.py?sort=semver&label=version)
 [![codecov](https://codecov.io/gh/DCC-BS/functional-monads.bs.py/graph/badge.svg?token=5NFA2CC4FS)](https://codecov.io/gh/DCC-BS/functional-monads.bs.py)
 
 # Functional Monads
