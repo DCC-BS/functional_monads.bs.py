@@ -28,7 +28,7 @@ jobs:
 
       - name: Run tests with coverage
         run: |
-          uv run coverage run pytest
+          uv run coverage run -m pytest
           uv run coverage report -m
           uv run coverage xml  # Generate XML report for badge generation
 
