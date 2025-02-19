@@ -5,3 +5,9 @@ branch = True
 omit =
     */tests/*
     */venv/*
+exclude_lines =
+    raise NotImplementedError
+    raise NotImplemented
+exclude_also =
+    @(abc\. )?abstractmethod
+    @(abc\. )?abstractproperty
