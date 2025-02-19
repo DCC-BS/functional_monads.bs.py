@@ -117,15 +117,6 @@ class Either(ABC, Generic[L, R]):
         """
         pass
 
-    def __str__(self) -> str:
-        match self:
-            case Left(value):
-                return f"Left({value})"
-            case Right(value):
-                return f"Right({value})"
-            case _:
-                raise ValueError("Invalid Either type")
-
     def __repr__(self) -> str:
         return self.__str__()
 
@@ -160,9 +151,6 @@ class Left(Either[L, R]):
     def __str__(self) -> str:
         return f"Left({self.value})"
 
-    def __repr__(self) -> str:
-        return self.__str__()
-
 
 class Right(Either[L, R]):
     __match_args__ = ("value",)
@@ -193,6 +181,3 @@ class Right(Either[L, R]):
 
     def __str__(self) -> str:
         return f"Right({self.value})"
-
-    def __repr__(self) -> str:
-        return self.__str__()
