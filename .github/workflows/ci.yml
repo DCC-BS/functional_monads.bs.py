@@ -27,19 +27,16 @@ jobs:
           uv sync
 
       - name: Run tests with coverage
-        run: |
-          uv run coverage run -m pytest
-          uv run coverage report -m
-          uv run coverage xml  # Generate XML report for badge generation
-
-      - name: Upload coverage results for badge generation
-        uses: actions/upload-artifact@v4
+        run: uv run pytest --cov -cov-report=xml --junitxml=junit.xml -o junit_family=legacy
+    
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
         with:
-          name: coverage-report
-          path: coverage.xml
+            token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Generate Coverage Badge
-        run: |
-          total=$(coverage xml -i | grep "line-rate" | cut -d'"' -f2)
-          curl "https://img.shields.io/badge/coverage-${total}%25-brightgreen" > badge.svg
-          echo "![Coverage Badge](badge.svg)" >> README.md  # Append to README.md or manage it as needed.
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+            token: ${{ secrets.CODECOV_TOKEN }}
