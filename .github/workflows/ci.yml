@@ -33,7 +33,7 @@ jobs:
           uv run coverage xml  # Generate XML report for badge generation
 
       - name: Upload coverage results for badge generation
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-report
           path: coverage.xml
